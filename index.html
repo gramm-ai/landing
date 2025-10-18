@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gramm AI - Precision Vision for Manufacturing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #86868b;
+            --accent: #0071e3;
+            --background: #ffffff;
+            --surface: #f5f5f7;
+            --border: #d2d2d7;
+            --text-light: #6e6e73;
+            --success: #34c759;
+            --max-width: 1200px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background: var(--background);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            z-index: 1000;
+            border-bottom: 0.5px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 52px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo svg {
+            height: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white !important;
+            padding: 0.375rem 1rem;
+            border-radius: 980px;
+            font-size: 0.75rem !important;
+            opacity: 1 !important;
+        }
+
+        .nav-cta:hover {
+            background: #0077ed;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 52px;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            background: var(--background);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(180deg, #000000 0%, #333333 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.375rem;
+            color: var(--secondary);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .metrics-row {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 980px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.2s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0077ed;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Base Styles */
+        section {
+            padding: 6rem 0;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--surface);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
+            color: var(--accent);
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        /* Technology Section */
+        .technology {
+            background: var(--background);
+        }
+
+        .tech-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tech-content h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .tech-content p {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 0.75rem 0;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9375rem;
+        }
+
+        .check {
+            color: var(--success);
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .check svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tech-visual {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .visual-placeholder {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            opacity: 0.2;
+        }
+
+        /* Implementation Section */
+        .implementation {
+            background: var(--background);
+        }
+
+        .impl-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .impl-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            background: white;
+        }
+
+        .impl-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impl-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .impl-icon svg {
+            width: 100%;
+            height: 100%;
+            color: var(--accent);
+        }
+
+        .impl-header h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .code-snippet {
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+        }
+
+        .code-snippet code {
+            font-size: 0.8125rem;
+            color: var(--primary);
+            line-height: 1.5;
+        }
+
+        .impl-description {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Architecture Diagram */
+        .architecture-diagram {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .arch-layer {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+            background: var(--surface);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .arch-layer:last-child {
+            margin-bottom: 0;
+        }
+
+        .arch-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .arch-items {
+            color: var(--text-light);
+            font-size: 0.8125rem;
+        }
+
+        /* Open Source Section */
+        .opensource {
+            background: var(--surface);
+            padding: 6rem 0;
+        }
+
+        .oss-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .oss-item {
+            text-align: center;
+        }
+
+        .oss-badge {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .oss-item p {
+            color: var(--text-light);
+            font-size: 0.75rem;
+        }
+
+        /* Results Section */
+        .results {
+            background: var(--primary);
+            color: white;
+        }
+
+        .results h2, .results .section-subtitle {
+            color: white;
+        }
+
+        .results .section-subtitle {
+            opacity: 0.8;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 8rem 0;
+            text-align: center;
+            background: var(--surface);
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 3rem;
+        }
+
+        .cta-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            background: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: #0077ed;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            background: var(--background);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-copyright {
+            color: var(--text-light);
+            font-size: 0.75rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .metrics-row {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .features-grid,
+            .results-grid,
+            .impl-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .oss-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .code-snippet {
+                font-size: 0.75rem;
+            }
+            
+            .architecture-diagram {
+                padding: 1rem;
+            }
+            
+            .arch-layer {
+                padding: 0.75rem;
+                font-size: 0.8125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 24px;">
+                    <!-- Logo icon -->
+                    <rect x="2" y="6" width="20" height="20" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <circle cx="12" cy="16" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    <circle cx="12" cy="16" r="2" fill="currentColor"/>
+                    <!-- Logo text -->
+                    <text x="28" y="20" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="600" fill="currentColor">Gramm AI</text>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#technology">Architecture</a></li>
+                <li><a href="#implementation">Implementation</a></li>
+                <li><a href="#opensource">Open Source</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="https://github.com/gram-ai/">GitHub</a></li>
+                <li><a href="#demo" class="nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Vision AI for<br>Modern Manufacturing</h1>
+            <p class="subtitle">
+                Deploy production-ready computer vision in 14 days.<br>
+                99% accuracy with 90% less training data.
+            </p>
+            
+            <div class="metrics-row">
+                <div class="metric">
+                    <div class="metric-value">99%</div>
+                    <div class="metric-label">Accuracy</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">20ms</div>
+                    <div class="metric-label">Response Time</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">14</div>
+                    <div class="metric-label">Days to Deploy</div>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#demo" class="btn btn-primary">Schedule Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Gramm AI</h2>
+                <p class="section-subtitle">
+                    Advanced vision-language models designed for manufacturing excellence.
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="12" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="4" fill="currentColor"/>
+                            <line x1="32" y1="4" x2="32" y2="12" stroke="currentColor" stroke-width="2"/>
+                            <line x1="32" y1="52" x2="32" y2="60" stroke="currentColor" stroke-width="2"/>
+                            <line x1="4" y1="32" x2="12" y2="32" stroke="currentColor" stroke-width="2"/>
+                            <line x1="52" y1="32" x2="60" y2="32" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Precision Detection</h3>
+                    <p class="feature-description">
+                        Sub-pixel accuracy for defects invisible to traditional inspection methods.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 32L28 12L36 20L24 32L36 44L28 52L12 32Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M28 32L44 12L52 20L40 32L52 44L44 52L28 32Z" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.2"/>
+                            <circle cx="24" cy="32" r="3" fill="currentColor"/>
+                            <circle cx="40" cy="32" r="3" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Edge Processing</h3>
+                    <p class="feature-description">
+                        Real-time inference on production lines with no cloud dependency.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="24" width="8" height="24" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.3"/>
+                            <rect x="20" y="16" width="8" height="32" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.5"/>
+                            <rect x="32" y="12" width="8" height="36" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.7"/>
+                            <rect x="44" y="8" width="8" height="40" stroke="currentColor" stroke-width="2" fill="currentColor"/>
+                            <path d="M8 50L56 50" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6 18L58 8" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Minimal Training</h3>
+                    <p class="feature-description">
+                        Achieve production accuracy with 50 images instead of 50,000.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Architecture</h2>
+                <p class="section-subtitle">
+                    Enterprise-grade vision AI built on proven deep learning foundations.
+                </p>
+            </div>
+            
+            <div class="tech-showcase">
+                <div class="tech-content">
+                    <h3>Core Technologies</h3>
+                    <p>
+                        Built on state-of-the-art neural architectures optimized for manufacturing environments.
+                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            <span class="check">
+                                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <strong>Capsule Networks</strong> - Enhanced spatial hierarchy understanding
+                        </li>
+                        <li>
+                            <span class="check">
+                                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <strong>Vision Transformers</strong> - Multi-scale defect detection
+                        </li>
+                        <li>
+                            <span class="check">
+                                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <strong>CLIP-based Models</strong> - Zero-shot visual reasoning
+                        </li>
+                        <li>
+                            <span class="check">
+                                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <strong>TensorRT Optimization</strong> - Sub-20ms inference
+                        </li>
+                        <li>
+                            <span class="check">
+                                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <strong>ONNX Runtime</strong> - Cross-platform deployment
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="tech-visual">
+                    <div class="architecture-diagram">
+                        <div class="arch-layer">
+                            <div class="arch-label">Application Layer</div>
+                            <div class="arch-items">REST API • WebSocket • gRPC</div>
+                        </div>
+                        <div class="arch-layer">
+                            <div class="arch-label">Model Layer</div>
+                            <div class="arch-items">VLM • Capsule Networks • ViT</div>
+                        </div>
+                        <div class="arch-layer">
+                            <div class="arch-label">Runtime Layer</div>
+                            <div class="arch-items">TensorRT • ONNX • PyTorch</div>
+                        </div>
+                        <div class="arch-layer">
+                            <div class="arch-label">Hardware Layer</div>
+                            <div class="arch-items">Jetson • A100 • Edge TPU</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Section -->
+    <section class="implementation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Implementation Details</h2>
+                <p class="section-subtitle">
+                    Open-source foundations with enterprise extensions.
+                </p>
+            </div>
+            
+            <div class="impl-grid">
+                <div class="impl-card">
+                    <div class="impl-header">
+                        <span class="impl-icon">
+                            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="10" cy="16" r="3" fill="currentColor"/>
+                                <circle cx="22" cy="16" r="3" fill="currentColor"/>
+                                <path d="M10 16L22 16" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M16 10C16 10 12 14 12 16C12 18 16 22 16 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16 10C16 10 20 14 20 16C20 18 16 22 16 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <h3>Model Architecture</h3>
+                    </div>
+                    <div class="code-snippet">
+                        <pre><code># Dynamic Routing Capsules for defect localization
+model = CapsuleNetwork(
+    input_channels=3,
+    primary_capsules=32,
+    digit_capsules=num_defect_types,
+    routing_iterations=3
+)</code></pre>
+                    </div>
+                    <p class="impl-description">
+                        Capsule networks preserve spatial relationships, critical for precise defect localization in manufacturing contexts.
+                    </p>
+                </div>
+                
+                <div class="impl-card">
+                    <div class="impl-header">
+                        <span class="impl-icon">
+                            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="8" width="24" height="16" stroke="currentColor" stroke-width="1.5" rx="2"/>
+                                <rect x="8" y="12" width="4" height="4" fill="currentColor"/>
+                                <rect x="14" y="12" width="4" height="4" fill="currentColor"/>
+                                <rect x="20" y="12" width="4" height="4" fill="currentColor"/>
+                                <rect x="8" y="18" width="4" height="2" fill="currentColor" opacity="0.5"/>
+                                <rect x="14" y="18" width="4" height="2" fill="currentColor" opacity="0.5"/>
+                                <rect x="20" y="18" width="4" height="2" fill="currentColor" opacity="0.5"/>
+                                <circle cx="26" cy="10" r="1" fill="currentColor"/>
+                                <circle cx="26" cy="14" r="1" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <h3>Edge Deployment</h3>
+                    </div>
+                    <div class="code-snippet">
+                        <pre><code># Optimized for NVIDIA Jetson
+import tensorrt as trt
+engine = optimize_for_edge(
+    model, 
+    precision='FP16',
+    max_batch_size=4
+)</code></pre>
+                    </div>
+                    <p class="impl-description">
+                        Hardware-specific optimization achieves real-time performance on edge devices without cloud dependency.
+                    </p>
+                </div>
+                
+                <div class="impl-card">
+                    <div class="impl-header">
+                        <span class="impl-icon">
+                            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="16" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="8" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="24" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="16" cy="24" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M16 11L16 21" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+                                <path d="M11 16L21 16" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+                                <path d="M13 11L19 21" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+                                <path d="M19 11L13 21" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+                                <circle cx="16" cy="16" r="2" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <h3>Continuous Learning</h3>
+                    </div>
+                    <div class="code-snippet">
+                        <pre><code># Federated learning across facilities
+update = federated_average(
+    local_gradients,
+    aggregation='secure',
+    differential_privacy=True
+)</code></pre>
+                    </div>
+                    <p class="impl-description">
+                        Privacy-preserving federated learning enables model improvement without exposing sensitive production data.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Source Section -->
+    <section class="opensource">
+        <div class="container">
+            <div class="section-header">
+                <h2>Open Source Components</h2>
+                <p class="section-subtitle">
+                    Building on community innovations, contributing back improvements.
+                </p>
+            </div>
+            
+            <div class="oss-grid">
+                <div class="oss-item">
+                    <div class="oss-badge">PyTorch</div>
+                    <p>Core deep learning framework</p>
+                </div>
+                <div class="oss-item">
+                    <div class="oss-badge">ONNX</div>
+                    <p>Cross-platform model deployment</p>
+                </div>
+                <div class="oss-item">
+                    <div class="oss-badge">TensorRT</div>
+                    <p>NVIDIA GPU optimization</p>
+                </div>
+                <div class="oss-item">
+                    <div class="oss-badge">OpenCV</div>
+                    <p>Computer vision preprocessing</p>
+                </div>
+                <div class="oss-item">
+                    <div class="oss-badge">MLflow</div>
+                    <p>Model versioning & tracking</p>
+                </div>
+                <div class="oss-item">
+                    <div class="oss-badge">Kubernetes</div>
+                    <p>Container orchestration</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://github.com/gram-ai" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                    View on GitHub
+                    <svg viewBox="0 0 16 16" style="width: 16px; height: 16px;" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="results">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proven Impact</h2>
+                <p class="section-subtitle">
+                    Measurable results from day one.
+                </p>
+            </div>
+            
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-value">40%</div>
+                    <div class="result-label">Defect Reduction</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value">70%</div>
+                    <div class="result-label">Cost Savings</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value">3x</div>
+                    <div class="result-label">Faster Inspection</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value">$2M+</div>
+                    <div class="result-label">Annual ROI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="demo">
+        <div class="container">
+            <h2>Start Your Pilot</h2>
+            <p>See Gramm AI in action at your facility.</p>
+            <form class="cta-form">
+                <input type="email" class="form-input" placeholder="Work Email" required>
+                <button type="submit" class="btn-submit">Request Demo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Technology</a>
+                <a href="#">Documentation</a>
+                <a href="https://github.com/gramm-ai/">GitHub</a>
+                <a href="#">Contact</a>
+            </div>
+            <p class="footer-copyright">
+                © 2025 Gramm AI. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        document.querySelector('.cta-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert('Thank you for your interest. We\'ll contact you within 24 hours.');
+            this.reset();
+        });
+        
+        // Subtle scroll effect for nav
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        }, { passive: true });
+        
+        // Add transition to nav
+        document.querySelector('nav').style.transition = 'transform 0.3s ease';
+    </script>
+</body>
+</html>
