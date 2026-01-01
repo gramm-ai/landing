@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gramm Forecast API Documentation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --code-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav a:hover {
+            opacity: 0.9;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin: 3rem 0 1.5rem;
+            color: var(--primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .overview {
+            font-size: 1.125rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 0.875rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--surface);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: var(--code-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        pre code {
+            background: none;
+            color: #e2e8f0;
+            padding: 0;
+        }
+
+        .endpoint {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .endpoint-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .method {
+            background: var(--success);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .path {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .status-active {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .base-url {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            margin: 1rem 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">← Back to gramm</a>
+    </nav>
+
+    <div class="container">
+        <h1>gramm Forecast API</h1>
+        <p class="overview">
+            The gramm 24-Hour Load Forecast API provides seamless access to grid demand predictions
+            for California utilities served by CAISO. Designed to match the familiar CAISO OASIS API pattern,
+            utilities can integrate forecast data into existing workflows with minimal changes.
+        </p>
+
+        <h2>Supported Utilities</h2>
+        <p>The following CAISO Transmission Access Charge (TAC) areas are supported:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>TAC Area</th>
+                    <th>Utility</th>
+                    <th>Service Territory</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>PGE</code></td>
+                    <td>Pacific Gas & Electric</td>
+                    <td>Northern & Central California</td>
+                    <td><span class="status-active">Active</span></td>
+                </tr>
+                <tr>
+                    <td><code>SCE</code></td>
+                    <td>Southern California Edison</td>
+                    <td>Central & Southern California</td>
+                    <td><span class="status-active">Active</span></td>
+                </tr>
+                <tr>
+                    <td><code>SDGE</code></td>
+                    <td>San Diego Gas & Electric</td>
+                    <td>San Diego Region</td>
+                    <td><span class="status-active">Active</span></td>
+                </tr>
+                <tr>
+                    <td><code>VEA</code></td>
+                    <td>Valley Electric Association</td>
+                    <td>Eastern California / Nevada Border</td>
+                    <td><span class="status-active">Active</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Base URL</h2>
+        <div class="base-url">https://api.gramm.ai/forecast/v1</div>
+
+        <h2>Authentication</h2>
+        <p>All API requests require an API key provided in the request header:</p>
+        <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+        <p>To obtain an API key, contact <a href="mailto:api@gramm.ai">api@gramm.ai</a>.</p>
+
+        <hr>
+
+        <h2>Endpoints</h2>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method">GET</span>
+                <span class="path">/demand</span>
+            </div>
+            <p>Retrieve 24-hour ahead load forecast for a specified utility TAC area.</p>
+
+            <h3>Request Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>tac_area</code></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>TAC area code: <code>PGE</code>, <code>SCE</code>, <code>SDGE</code>, <code>VEA</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>startdatetime</code></td>
+                        <td>datetime</td>
+                        <td>Yes</td>
+                        <td>Start time: <code>YYYYMMDDTHH:MM-0000</code> (e.g., <code>20250101T00:00-0800</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>enddatetime</code></td>
+                        <td>datetime</td>
+                        <td>Yes</td>
+                        <td>End time: <code>YYYYMMDDTHH:MM-0000</code> (e.g., <code>20250102T00:00-0800</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>market_run_id</code></td>
+                        <td>string</td>
+                        <td>No</td>
+                        <td>Market run: <code>DAM</code> (Day-Ahead), <code>RTM</code> (Real-Time), <code>2DA</code>
+                            (2-Day Ahead)</td>
+                    </tr>
+                    <tr>
+                        <td><code>resultformat</code></td>
+                        <td>integer</td>
+                        <td>No</td>
+                        <td><code>5</code> = XML (default), <code>6</code> = CSV, <code>7</code> = JSON</td>
+                    </tr>
+                    <tr>
+                        <td><code>version</code></td>
+                        <td>integer</td>
+                        <td>No</td>
+                        <td>Data version (default: latest)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Example Request</h3>
+            <pre><code>curl -X GET "https://api.gramm.ai/forecast/v1/demand?\
+tac_area=PGE&\
+startdatetime=20250101T00:00-0800&\
+enddatetime=20250102T00:00-0800&\
+market_run_id=DAM&\
+resultformat=7" \
+-H "Authorization: Bearer YOUR_API_KEY"</code></pre>
+
+            <h3>Response</h3>
+            <pre><code>{
+  "meta": {
+    "tac_area": "PGE",
+    "utility": "Pacific Gas & Electric",
+    "startdatetime": "20250101T00:00-0800",
+    "enddatetime": "20250102T00:00-0800",
+    "market_run_id": "DAM",
+    "units": "MW",
+    "generated_at": "20241231T16:00-0800",
+    "model_version": "megfs-v2.1"
+  },
+  "forecast": [
+    {"interval_start": "20250101T00:00-0800", "value": 18542.3, "lower_bound": 17890.1, "upper_bound": 19194.5},
+    {"interval_start": "20250101T01:00-0800", "value": 17891.7, "lower_bound": 17259.4, "upper_bound": 18524.0}
+  ]
+}</code></pre>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method">GET</span>
+                <span class="path">/historical</span>
+            </div>
+            <p>Retrieve historical forecast accuracy metrics.</p>
+
+            <h3>Request Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>tac_area</code></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>TAC area code</td>
+                    </tr>
+                    <tr>
+                        <td><code>date</code></td>
+                        <td>date</td>
+                        <td>Yes</td>
+                        <td>Date in <code>YYYY-MM-DD</code> format</td>
+                    </tr>
+                    <tr>
+                        <td><code>metric</code></td>
+                        <td>string</td>
+                        <td>No</td>
+                        <td>Metric type: <code>mape</code>, <code>rmse</code>, <code>mae</code> (default: all)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method">GET</span>
+                <span class="path">/tac-areas</span>
+            </div>
+            <p>List all supported TAC areas and their current status.</p>
+        </div>
+
+        <hr>
+
+        <h2>Rate Limits</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Requests/Hour</th>
+                    <th>Requests/Day</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Trial</strong></td>
+                    <td>100</td>
+                    <td>1,000</td>
+                </tr>
+                <tr>
+                    <td><strong>Standard</strong></td>
+                    <td>1,000</td>
+                    <td>10,000</td>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise</strong></td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Familiar API Design</h2>
+        <p>The gramm API uses parameter conventions familiar to CAISO OASIS users, making it easy to integrate forecasts
+            alongside historical grid data:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>CAISO OASIS</th>
+                    <th>gramm Forecast API</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>queryname=SLD_FCST</code></td>
+                    <td><code>GET /demand</code></td>
+                    <td>System Load Forecast</td>
+                </tr>
+                <tr>
+                    <td><code>market_run_id=DAM</code></td>
+                    <td><code>market_run_id=DAM</code></td>
+                    <td>Same parameter name</td>
+                </tr>
+                <tr>
+                    <td><code>startdatetime</code></td>
+                    <td><code>startdatetime</code></td>
+                    <td>YYYYMMDDTHH:MM-0000</td>
+                </tr>
+                <tr>
+                    <td><code>enddatetime</code></td>
+                    <td><code>enddatetime</code></td>
+                    <td>YYYYMMDDTHH:MM-0000</td>
+                </tr>
+                <tr>
+                    <td><code>resultformat=5</code></td>
+                    <td><code>resultformat=5</code></td>
+                    <td>XML output</td>
+                </tr>
+                <tr>
+                    <td><code>resultformat=6</code></td>
+                    <td><code>resultformat=6</code></td>
+                    <td>CSV output</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Support</h2>
+        <p>
+            <strong>API Status:</strong> <a href="https://status.gramm.ai">status.gramm.ai</a><br>
+            <strong>Contact:</strong> <a href="mailto:api@gramm.ai">api@gramm.ai</a>
+        </p>
+    </div>
+</body>
+
+</html>
