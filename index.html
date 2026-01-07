@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gramm AI - Enterprise AI for Critical Infrastructure</title>
+    <title>Gramm AI - Production-ready Industrial AI for Manufacturing & Grid Operations</title>
     <meta name="description"
-        content="Gramm AI delivers production-grade ML solutions for risk identification, quality management, and time-series forecasting. Trusted by government and enterprise.">
+        content="Gramm AI delivers production-ready AI for risk detection, quality control, and time-series forecasting in manufacturing and grid operations. Built for executives, engineers, and data scientists.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,6 +28,7 @@
             --surface-dark: #0f172a;
             --text: #1e293b;
             --text-muted: #64748b;
+            --text-light: rgba(255, 255, 255, 0.7);
             --border: #e2e8f0;
             --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             --gradient-dark: linear-gradient(180deg, #0a1628 0%, #1e3a5f 100%);
@@ -312,6 +313,57 @@
             animation: fadeInUp 0.6s ease-out 0.4s backwards;
         }
 
+        .hero-cta .btn-secondary {
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+
+        .hero-callout {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            padding: 1.25rem 1.25rem;
+            max-width: 900px;
+            animation: fadeInUp 0.6s ease-out 0.5s backwards;
+        }
+
+        .hero-callout strong {
+            color: white;
+        }
+
+        .hero-callout p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .hero-callout a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 0.6rem 0.9rem;
+            border-radius: 10px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .hero-callout a:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-1px);
+        }
+
         .btn {
             padding: 1rem 2rem;
             border-radius: 10px;
@@ -386,6 +438,29 @@
             align-items: center;
             gap: 4rem;
             flex-wrap: wrap;
+        }
+
+        .logo-strip {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-chip {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            padding: 0.5rem 0.9rem;
+            font-size: 0.85rem;
+            color: var(--text);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo-chip span {
+            color: var(--text-muted);
+            margin-right: 0.35rem;
         }
 
         .trust-badge {
@@ -847,6 +922,323 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
+        /* Case Studies */
+        .case-studies {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .case-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .case-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .case-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .case-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+        }
+
+        .case-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.25;
+        }
+
+        .case-body {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .ba-block {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .ba-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .ba-metric {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .ba-note {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Personas */
+        .personas {
+            padding: 8rem 0;
+            background: var(--surface);
+        }
+
+        .persona-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .persona-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .persona-tab {
+            padding: 0.75rem 1.25rem;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            color: var(--text);
+        }
+
+        .persona-tab:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .persona-tab.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .persona-panel {
+            display: none;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .persona-panel.active {
+            display: block;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .persona-panel h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+
+        .persona-panel p {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .persona-list {
+            list-style: none;
+        }
+
+        .persona-list li {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .persona-list li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+
+        .persona-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .persona-card strong {
+            color: var(--primary);
+        }
+
+        .persona-card p {
+            margin: 0.75rem 0 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Getting Started + FAQ */
+        .getting-started {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .gs-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .step {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.25s;
+        }
+
+        .step:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .step h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .step p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .faq {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            background: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-q {
+            width: 100%;
+            background: white;
+            border: none;
+            padding: 1.25rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: left;
+        }
+
+        .faq-q span {
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+
+        .faq-a {
+            display: none;
+            padding: 0 1.25rem 1.25rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+
+        .faq-item.open .faq-a {
+            display: block;
+        }
+
+        .faq-chevron {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+
         /* API Section */
         .api-section {
             padding: 8rem 0;
@@ -1179,6 +1571,18 @@
                 gap: 4rem;
             }
 
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1254,11 +1658,14 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#services">Solutions</a></li>
+                <li><a href="#case-studies">Examples</a></li>
+                <li><a href="#personas">For Teams</a></li>
                 <li><a href="#grid">Grid Forecasting</a></li>
                 <li><a href="#api">API</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
                 <li><a href="#team">Leadership</a></li>
                 <li><a href="https://github.com/gramm-ai/" target="_blank">GitHub</a></li>
-                <li><a href="mailto:contact@gramm.ai" class="nav-cta">Contact Us</a></li>
+                <li><a href="mailto:contact@gramm.ai?subject=Request%20Demo%20-%20Gramm%20AI" class="nav-cta">Request Demo</a></li>
             </ul>
         </div>
     </nav>
@@ -1270,42 +1677,54 @@
                 <span class="hero-badge-dot"></span>
                 Partnered with Fairbuild • Trusted by Meta Reality Labs
             </div>
-            <h1>Enterprise AI for <br><span class="gradient-text">Critical Infrastructure</span></h1>
+            <h1>Production-ready AI for <br><span class="gradient-text">Manufacturing & Grid Operations</span></h1>
             <p class="hero-subtitle">
-                Production-grade machine learning solutions for risk identification,
-                quality management, and time-series forecasting. Delivering AI-powered
-                manufacturing test incidence response automation.
+                Risk detection, quality control, and time-series forecasting—delivered as production systems
+                with observability, security, and integration-first APIs.
             </p>
 
             <div class="hero-stats">
                 <div class="stat-item">
-                    <div class="stat-value"><span class="counter" data-target="15">0</span>+</div>
+                    <div class="stat-value"><span class="counter" data-target="15">15</span>+</div>
                     <div class="stat-label">Years AI/ML Experience</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value"><span class="counter" data-target="9.7">0</span>%</div>
-                    <div class="stat-label">Improvement over CAISO</div>
+                    <div class="stat-value"><span class="counter" data-target="9.7">9.70</span>%</div>
+                    <div class="stat-label">Improvement vs reference baseline</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value"><span class="counter" data-target="4.11">0</span>%</div>
+                    <div class="stat-value"><span class="counter" data-target="4.11">4.11</span>%</div>
                     <div class="stat-label">Day-Ahead MAPE</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">&lt;<span class="counter" data-target="50">0</span>ms</div>
+                    <div class="stat-value">&lt;<span class="counter" data-target="50">50</span>ms</div>
                     <div class="stat-label">Inference Latency</div>
                 </div>
             </div>
 
             <div class="hero-cta">
-                <a href="mailto:contact@gramm.ai?subject=CEC%20Partnership%20Inquiry" class="btn btn-primary">
+                <a href="mailto:contact@gramm.ai?subject=Request%20Demo%20-%20Gramm%20AI" class="btn btn-primary">
                     <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                         <polyline points="22,6 12,13 2,6" />
                     </svg>
-                    Partner With Us
+                    Request Demo
                 </a>
-                <a href="#services" class="btn btn-secondary">
-                    Explore Solutions
+                <a href="api-docs.html" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                    View API Docs
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="hero-callout">
+                <p>
+                    <strong>From pilot to production:</strong> deploy models with versioning, monitoring, and
+                    integration patterns that fit enterprise workflows.
+                </p>
+                <a href="#getting-started">
+                    Getting Started
                     <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -1346,6 +1765,12 @@
                     </svg>
                     <span>Open Source Core</span>
                 </div>
+            </div>
+            <div class="logo-strip reveal">
+                <div class="logo-chip"><span>Partner:</span> Fairbuild</div>
+                <div class="logo-chip"><span>Trusted:</span> Meta Reality Labs</div>
+                <div class="logo-chip"><span>API:</span> CAISO-style patterns</div>
+                <div class="logo-chip"><span>Ops:</span> Monitoring & SLAs</div>
             </div>
         </div>
     </section>
@@ -1481,6 +1906,208 @@
         </div>
     </section>
 
+    <!-- Examples / Case Studies -->
+    <section class="case-studies" id="case-studies">
+        <div class="case-container">
+            <div class="section-header reveal">
+                <div class="section-label">Examples</div>
+                <h2 class="section-title">Simple, concrete outcomes</h2>
+                <p class="section-subtitle">
+                    A quick view of the context, what changes, and the measurable impact.
+                </p>
+            </div>
+
+            <div class="case-grid">
+                <div class="case-card reveal">
+                    <div class="case-tag">Grid Operations</div>
+                    <div class="case-title">CAISO load forecasting with multimodal models</div>
+                    <p class="case-body">
+                        We deliver an OASIS-style forecast API that integrates satellite imagery, weather,
+                        and historical patterns to improve accuracy and reduce high-impact errors.
+                    </p>
+                    <div class="before-after">
+                        <div class="ba-block">
+                            <div class="ba-label">Before</div>
+                            <div class="ba-metric">Baseline forecasting</div>
+                            <div class="ba-note">Harder to anticipate large swings and tail events.</div>
+                        </div>
+                        <div class="ba-block">
+                            <div class="ba-label">After</div>
+                            <div class="ba-metric">9.7% better than CAISO</div>
+                            <div class="ba-note">Day-ahead MAPE: 4.11% with &lt;50ms inference latency.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card reveal">
+                    <div class="case-tag">Manufacturing</div>
+                    <div class="case-title">Risk detection + quality control as a production workflow</div>
+                    <p class="case-body">
+                        We turn noisy test signals into actionable alerts: anomaly detection, triage signals,
+                        and dashboards that help teams respond faster and reduce rework.
+                    </p>
+                    <div class="before-after">
+                        <div class="ba-block">
+                            <div class="ba-label">Before</div>
+                            <div class="ba-metric">Manual triage</div>
+                            <div class="ba-note">Engineers spend cycles finding root cause across logs and tests.</div>
+                        </div>
+                        <div class="ba-block">
+                            <div class="ba-label">After</div>
+                            <div class="ba-metric">Automated detection</div>
+                            <div class="ba-note">Prioritized incidents with explainability and auditable outputs.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personas -->
+    <section class="personas" id="personas">
+        <div class="persona-container">
+            <div class="section-header reveal">
+                <div class="section-label">For Teams</div>
+                <h2 class="section-title">Clarity for every stakeholder</h2>
+                <p class="section-subtitle">
+                    One platform—communicated in the language executives, engineers, and data scientists need.
+                </p>
+            </div>
+
+            <div class="persona-tabs reveal">
+                <button class="persona-tab active" data-persona="exec">For Executives</button>
+                <button class="persona-tab" data-persona="eng">For Engineers</button>
+                <button class="persona-tab" data-persona="ds">For Data Scientists</button>
+            </div>
+
+            <div class="persona-panel active reveal" id="persona-exec">
+                <div class="persona-grid">
+                    <div>
+                        <h3>Business impact you can measure</h3>
+                        <p>
+                            Reduce downtime, improve yield, and make operations more predictable with AI systems
+                            designed for reliability and change management.
+                        </p>
+                        <ul class="persona-list">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                                Faster detection and response for high-severity issues
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                                Governance: versioned models, audit trails, and performance reporting
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                                Deployment that fits existing workflows and security requirements
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="persona-card">
+                        <strong>Typical deliverables</strong>
+                        <p>
+                            Business-ready dashboards, SLA-backed services, and operational metrics that track
+                            accuracy, drift, and incident outcomes over time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-panel reveal" id="persona-eng">
+                <div class="persona-grid">
+                    <div>
+                        <h3>Integration-first engineering</h3>
+                        <p>
+                            REST APIs, predictable schemas, and observability hooks—so deployment and maintenance
+                            are as clean as model training.
+                        </p>
+                        <ul class="persona-list">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                                OASIS-style parameters and response formats (XML/CSV/JSON)
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                                Low-latency inference with versioned models and rollbacks
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                                Monitoring: uptime, latency, and quality metrics
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="persona-card">
+                        <strong>Developer resources</strong>
+                        <p>
+                            Start with `api-docs.html` for endpoint details, then follow the Getting Started
+                            steps for auth, environments, and rollout.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="persona-panel reveal" id="persona-ds">
+                <div class="persona-grid">
+                    <div>
+                        <h3>Performance, benchmarks, and model lifecycle</h3>
+                        <p>
+                            Evaluate models with the metrics that matter to your domain, and ship improvements
+                            with traceability and safe iteration.
+                        </p>
+                        <ul class="persona-list">
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                                Clear metrics: MAPE/RMSE/MAE and tail-error reporting
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                                Uncertainty bands and explainability where applicable
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+                                </svg>
+                                Drift tracking and model version comparisons over time
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="persona-card">
+                        <strong>What you get</strong>
+                        <p>
+                            Benchmarks, model cards, and a deployment pipeline that keeps evaluation and production
+                            aligned.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- California Grid Section -->
     <section class="grid-section" id="grid">
         <div class="grid-container">
@@ -1490,7 +2117,7 @@
                     <h2>California Grid Forecasting</h2>
                     <p>
                         Our Mamba-based state space models deliver state-of-the-art accuracy
-                        for California ISO load forecasting. The Multimodal Explainable Grid
+                        for California load forecasting in the CAISO market context. The Multimodal Explainable Grid
                         Forecasting System (MEGFS) integrates satellite imagery, weather data,
                         and historical patterns to provide transparent, actionable intelligence
                         for grid operators.
@@ -1499,7 +2126,7 @@
                     <div class="grid-metrics">
                         <div class="grid-metric">
                             <div class="grid-metric-value">9.7%</div>
-                            <div class="grid-metric-label">Better than CAISO baseline</div>
+                            <div class="grid-metric-label">Better than reference baseline</div>
                         </div>
                         <div class="grid-metric">
                             <div class="grid-metric-value">17+ GW</div>
@@ -1508,10 +2135,6 @@
                         <div class="grid-metric">
                             <div class="grid-metric-value">60%</div>
                             <div class="grid-metric-label">Large error reduction</div>
-                        </div>
-                        <div class="grid-metric">
-                            <div class="grid-metric-value">$16M</div>
-                            <div class="grid-metric-label">Annual savings per cluster</div>
                         </div>
                     </div>
                 </div>
@@ -1628,7 +2251,7 @@
                 <span class="section-label">DEVELOPER ACCESS</span>
                 <h2>Forecast API</h2>
                 <p class="section-subtitle">
-                    CAISO-compatible REST API for seamless integration with existing utility workflows.
+                    OASIS-style REST API for seamless integration with existing utility workflows.
                     Supports XML and JSON response formats.
                 </p>
             </div>
@@ -1787,6 +2410,101 @@ print(f"Forecast points: {len(forecast['forecast'])}")</code></pre>
         </div>
     </section>
 
+    <!-- Getting Started + FAQ -->
+    <section class="getting-started" id="getting-started">
+        <div class="gs-container">
+            <div class="section-header reveal">
+                <div class="section-label">Developer Onboarding</div>
+                <h2 class="section-title">Clear integration path</h2>
+                <p class="section-subtitle">
+                    Start quickly with docs, then scale with production practices.
+                </p>
+            </div>
+
+            <div class="steps">
+                <div class="step reveal">
+                    <div class="step-num">1</div>
+                    <h4>Review the API reference</h4>
+                    <p>Use the Forecast API docs for endpoints, parameters, and response formats.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-num">2</div>
+                    <h4>Request credentials</h4>
+                    <p>Get an API key and choose your integration format (XML/CSV/JSON).</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-num">3</div>
+                    <h4>Ship with observability</h4>
+                    <p>Track latency, uptime, and accuracy drift with a rollout plan and versioning.</p>
+                </div>
+            </div>
+
+            <div class="api-cta reveal" style="justify-content: center; margin-bottom: 3rem;">
+                <a href="api-docs.html" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                    View Full Documentation
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+                <a href="mailto:api@gramm.ai?subject=API%20Key%20Request" class="btn btn-primary">
+                    Request API Key
+                </a>
+            </div>
+
+            <div class="faq">
+                <div class="faq-item reveal">
+                    <button class="faq-q" type="button">
+                        What environments do you support?
+                        <span>
+                            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-a">
+                        We support standard enterprise deployment patterns (cloud, hybrid, and private). We align the
+                        integration to your security and networking requirements.
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-q" type="button">
+                        How do we monitor model quality over time?
+                        <span>
+                            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-a">
+                        We track performance metrics (e.g., MAPE/RMSE/MAE) and drift signals with versioned models,
+                        so you can compare cohorts and roll forward safely.
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <button class="faq-q" type="button">
+                        What does “OASIS-style” mean here?
+                        <span>
+                            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-a">
+                        The API follows parameter conventions and response patterns familiar to CAISO OASIS users,
+                        minimizing changes needed for existing workflows.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-container reveal">
@@ -1817,6 +2535,10 @@ print(f"Forecast points: {len(forecast['forecast'])}")</code></pre>
                         Enterprise AI solutions for critical infrastructure.
                         San Francisco Bay Area, California.
                     </p>
+                    <p style="margin-top: 0.75rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.55);">
+                        CAISO and OASIS are trademarks of their respective owners. References are for interoperability
+                        and benchmarking context only and do not imply endorsement.
+                    </p>
                 </div>
 
                 <div class="footer-column">
@@ -1840,7 +2562,8 @@ print(f"Forecast points: {len(forecast['forecast'])}")</code></pre>
                     <h4>Resources</h4>
                     <ul>
                         <li><a href="https://github.com/gramm-ai/" target="_blank">GitHub</a></li>
-                        <li><a href="#grid">Technical Demo</a></li>
+                        <li><a href="api-docs.html" target="_blank">API Docs</a></li>
+                        <li><a href="#getting-started">Getting Started</a></li>
                     </ul>
                 </div>
             </div>
@@ -1859,7 +2582,7 @@ print(f"Forecast points: {len(forecast['forecast'])}")</code></pre>
             counters.forEach(counter => {
                 const target = parseFloat(counter.dataset.target);
                 const duration = 2000;
-                const start = 0;
+                const start = parseFloat(counter.textContent) || 0;
                 const startTime = performance.now();
 
                 function updateCounter(currentTime) {
@@ -1879,6 +2602,10 @@ print(f"Forecast points: {len(forecast['forecast'])}")</code></pre>
                     }
                 }
 
+                // Avoid "0+" placeholder perception: if already at target, keep as-is.
+                if (Math.abs(target - start) < 1e-6) {
+                    return;
+                }
                 requestAnimationFrame(updateCounter);
             });
         }
@@ -2054,6 +2781,32 @@ print(f"Forecast points: {len(forecast['forecast'])}")</code></pre>
                     document.querySelectorAll('.api-code').forEach(c => c.classList.remove('active'));
                     tab.classList.add('active');
                     document.getElementById(tab.dataset.tab + '-code').classList.add('active');
+                });
+            });
+
+            // Persona switching
+            const personaTabs = document.querySelectorAll('.persona-tab');
+            const personaPanels = {
+                exec: document.getElementById('persona-exec'),
+                eng: document.getElementById('persona-eng'),
+                ds: document.getElementById('persona-ds')
+            };
+            personaTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    personaTabs.forEach(t => t.classList.remove('active'));
+                    Object.values(personaPanels).forEach(p => p && p.classList.remove('active'));
+                    tab.classList.add('active');
+                    const key = tab.dataset.persona;
+                    if (personaPanels[key]) personaPanels[key].classList.add('active');
+                });
+            });
+
+            // FAQ accordion
+            document.querySelectorAll('.faq-item .faq-q').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    if (!item) return;
+                    item.classList.toggle('open');
                 });
             });
         });
